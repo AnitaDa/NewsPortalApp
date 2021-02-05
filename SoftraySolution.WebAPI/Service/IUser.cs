@@ -10,6 +10,6 @@ namespace SoftraySolution.WebAPI.Service
     {
         MUser Insert(UserUpsertRequest insert);
         MUser Authenticate(AuthenticateRequest request);
-        MUser GetLoggedUser();
+        //MUser GetLoggedUser();
     }
 }

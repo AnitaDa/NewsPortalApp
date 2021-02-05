@@ -12,7 +12,7 @@ namespace SoftraySolution.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-  
+    [Authorize]
     public class PostController : Controller
     {
         private readonly IPostService _service;

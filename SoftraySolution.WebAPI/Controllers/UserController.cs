@@ -32,11 +32,11 @@ namespace SoftraySolution.WebAPI.Controllers
             return _service.Authenticate(request);
         }
       
-        [Route("[action]")]
-        [HttpGet]
-        public MUser GetLoggedUser()
-        {
-            return _service.GetLoggedUser();
-        }
+        //[Route("[action]")]
+        //[HttpGet]
+        //public MUser GetLoggedUser()
+        //{
+        //    return _service.GetLoggedUser();
+        //}
     }
 }

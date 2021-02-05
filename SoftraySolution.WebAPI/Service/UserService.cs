@@ -16,11 +16,11 @@ namespace SoftraySolution.WebAPI.Service
         private readonly IHttpContextAccessor _accessor;
         private readonly PortalContext _context;
         private readonly IMapper _mapper;
-        public UserService(PortalContext context, IMapper mapper, IHttpContextAccessor accessor)
+        public UserService(PortalContext context, IMapper mapper/* IHttpContextAccessor accessor*/)
         {
             _context = context;
             _mapper = mapper;
-            _accessor = accessor;
+            //_accessor = accessor;
         }
         public static string GenerateSalt()
         {
@@ -71,17 +71,17 @@ namespace SoftraySolution.WebAPI.Service
             return null;
         }
 
-        public MUser GetLoggedUser()
-        {
+        //public MUser GetLoggedUser()
+        //{
 
-            var obj = _accessor?.HttpContext?.User.Claims.ToList();
-            if (obj.Count > 0)
-            {
-                var query = _context.UserNs.Where(i => i.UserName == obj[0].Value).FirstOrDefault();
-                return _mapper.Map<MUser>(query);
-            }
+        //    var obj = _accessor?.HttpContext?.User.Claims.ToList();
+        //    if (obj.Count > 0)
+        //    {
+        //        var query = _context.UserNs.Where(i => i.UserName == obj[0].Value).FirstOrDefault();
+        //        return _mapper.Map<MUser>(query);
+        //    }
 
-            return null;
-        }
+        //    return null;
+        //}
     }
 }
