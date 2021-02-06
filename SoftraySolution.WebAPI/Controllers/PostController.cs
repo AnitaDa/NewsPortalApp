@@ -10,9 +10,10 @@ using System.Threading.Tasks;
 
 namespace SoftraySolution.WebAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+   
     public class PostController : Controller
     {
         private readonly IPostService _service;
@@ -20,13 +21,13 @@ namespace SoftraySolution.WebAPI.Controllers
         {
             _service = service;
         }
-       
+       [AllowAnonymous]
         [HttpGet]
         public List<MPost> Get([FromQuery]PostSearchRequest search)
         {
             return _service.Get(search);
         }
-        
+        [AllowAnonymous]
         [HttpGet("{Id}")]
         public MPost GetById(int Id)
         {
@@ -40,7 +41,7 @@ namespace SoftraySolution.WebAPI.Controllers
             else
                 return NotFound();
         }
-        [AllowAnonymous]
+     
         [HttpPost]
         public MPost Insert(PostUpsertRequest insert)
         {
@@ -50,6 +51,11 @@ namespace SoftraySolution.WebAPI.Controllers
         public MPost Update(int Id, PostUpsertRequest update)
         {
             return _service.Update(Id, update);
+        }
+        [HttpPost("AdminPost")]
+        public MAdminPost InsertAdminPost(AdminPostInsertRequest insert)
+        {
+            return _service.InsertAdminPost(insert);
         }
     }
 }

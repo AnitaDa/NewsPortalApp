@@ -14,5 +14,7 @@ namespace SoftraySolution.WebAPI.Service
         MPost Insert(PostUpsertRequest insert);
         bool Delete(int Id);
         MPost Update(int Id, PostUpsertRequest update);
+        //Dodavanje medjutabele prilikom dodavanja ili izmene posta
+        MAdminPost InsertAdminPost(AdminPostInsertRequest insert);
     }
 }

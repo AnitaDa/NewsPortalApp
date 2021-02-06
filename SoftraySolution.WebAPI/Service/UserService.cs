@@ -70,18 +70,5 @@ namespace SoftraySolution.WebAPI.Service
 
             return null;
         }
-
-        //public MUser GetLoggedUser()
-        //{
-
-        //    var obj = _accessor?.HttpContext?.User.Claims.ToList();
-        //    if (obj.Count > 0)
-        //    {
-        //        var query = _context.UserNs.Where(i => i.UserName == obj[0].Value).FirstOrDefault();
-        //        return _mapper.Map<MUser>(query);
-        //    }
-
-        //    return null;
-        //}
     }
 }

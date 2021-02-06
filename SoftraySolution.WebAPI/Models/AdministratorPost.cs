@@ -7,6 +7,7 @@ namespace SoftraySolution.WebAPI.Models
 {
     public partial class AdministratorPost
     {
+        public int AdministratorPostId { get; set; }
         public int? AdministratorId { get; set; }
         public int? PostId { get; set; }
 

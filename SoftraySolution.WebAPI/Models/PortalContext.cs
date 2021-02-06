@@ -47,8 +47,7 @@ namespace SoftraySolution.WebAPI.Models
 
             modelBuilder.Entity<AdministratorPost>(entity =>
             {
-                entity.HasNoKey();
-
+               
                 entity.ToTable("AdministratorPost");
 
                 entity.HasOne(d => d.Administrator)
@@ -67,8 +66,6 @@ namespace SoftraySolution.WebAPI.Models
                 entity.ToTable("Post");
 
                 entity.Property(e => e.Content).IsUnicode(false);
-
-                entity.Property(e => e.Phone).HasMaxLength(20);
 
                 entity.Property(e => e.PostDate).HasColumnType("datetime");
 

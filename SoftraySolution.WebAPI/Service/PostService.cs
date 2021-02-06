@@ -46,7 +46,7 @@ namespace SoftraySolution.WebAPI.Service
                 Title = s.Post.Title,
                 PostDate = s.Post.PostDate,
                 Content = s.Post.Content,
-                AdministratorId=s.AdministratorId,
+                AdministratorId=s.Administrator.AdministratorId,
                 Author = s.Administrator.FirstName + " " + s.Administrator.LastName
             }).ToList();
             return _mapper.Map<List<MPost>>(list);
@@ -73,6 +73,13 @@ namespace SoftraySolution.WebAPI.Service
             _mapper.Map(update, obj);
             _context.SaveChanges();
             return _mapper.Map<MPost>(obj);
+        }
+        public MAdminPost InsertAdminPost(AdminPostInsertRequest insert)
+        {
+            var obj = _mapper.Map<Models.AdministratorPost>(insert);
+            _context.AdministratorPosts.Add(obj);
+            _context.SaveChanges();
+            return _mapper.Map<MAdminPost>(obj);
         }
     }
     }
