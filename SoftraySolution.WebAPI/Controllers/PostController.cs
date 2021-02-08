@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SoftraySolution.WebAPI.Controllers
 {
-    [Authorize]
+   
     [Route("api/[controller]")]
     [ApiController]
    

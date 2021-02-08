@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using SoftraySolution.Model;
 using SoftraySolution.Model.Request;
 using SoftraySolution.WebAPI.Models;
@@ -54,7 +55,21 @@ namespace SoftraySolution.WebAPI.Service
 
         public MPost GetById(int Id)
         {
-            var obj = _context.Posts.Find(Id);
+            //var obj = _context.AdministratorPosts
+            //    .Include(x => x.Administrator)
+            //    .Include(x=>x.Post)
+            //    .Where(s => s.PostId == Id).FirstOrDefault();
+            var query = _context.AdministratorPosts.AsQueryable();
+            query = query.Where(x => x.PostId == Id);
+            var obj = query.Select(s => new MPost {
+            PostId=s.PostId,
+            Title=s.Post.Title,
+            Content=s.Post.Content,
+            PostDate=s.Post.PostDate,
+            AdministratorId=s.AdministratorId,
+            Author=s.Administrator.FirstName+" "+s.Administrator.LastName
+            }).FirstOrDefault();
+ 
             return _mapper.Map<MPost>(obj);
         }
 

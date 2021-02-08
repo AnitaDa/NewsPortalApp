@@ -19,6 +19,7 @@ namespace SoftraySolution.WebAPI.Mapper
             CreateMap<UserUpsertRequest,UserN>();
             CreateMap<AdminPostInsertRequest, AdministratorPost>();
             CreateMap<AdministratorPost, MAdminPost>();
+            CreateMap<AdministratorPost, MPost>();
         }
     }
 }

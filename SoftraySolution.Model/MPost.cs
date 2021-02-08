@@ -4,7 +4,7 @@ namespace SoftraySolution.Model
 {
     public class MPost
     {
-        public int PostId { get; set; }
+        public int? PostId { get; set; }
         public string Title { get; set; }
         public DateTime? PostDate { get; set; }
         public string Content { get; set; }
