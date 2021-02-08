@@ -9,4 +9,4 @@
 
   4) Node.js command prompt
   
-  Android aplikaciju pokrenuti **ng serve --o ** komandom
+  Android aplikaciju pokrenuti **ng serve --o** komandom
