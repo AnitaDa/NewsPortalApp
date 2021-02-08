@@ -7,6 +7,6 @@
 
   3) Vistual Studio Code za pokretanje Angular aplikacije
 
-  4)Node.js command prompt
+  4) Node.js command prompt
   
   Android aplikaciju pokrenuti **ng serve --o ** komandom
